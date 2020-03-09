@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>基于hexo github的个人博客</title>
+      <link href="/posts/34911.html"/>
+      <url>/posts/34911.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h2><p><em>配置好环境之后</em></p><h3 id="初始化hexo项目"><a href="#初始化hexo项目" class="headerlink" title="初始化hexo项目"></a>初始化hexo项目</h3><p>进入blog文件夹鼠标右击，选择 <em>Git Bash here</em></p><p>项目名称跟github中repo的项目名称相同</p><pre class="line-numbers language-bash"><code class="language-bash">hexo init yourname.github.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>初始化时间较长，过程可能还会出现掉包的情况。如果初始化失败，删除原有的文件，重新初始化即可。</p><p>界面中显示以下信息，则表示初始化成功</p><pre class="line-numbers language-text"><code class="language-text">INFO Start blogging with Hexo!<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>初始化成功之后进入项目</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> yourname.github.io<span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h3><p>运行命令</p><pre class="line-numbers language-shell"><code class="language-shell">npm install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果出现类似下面的错误</p><p><img src="https://i.loli.net/2020/03/09/awkI9nUs8JAN1cd.png" alt=""></p><p><strong>使用 –ignore-scripts 安装</strong> (先把某个报错的包单独安装)</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> ejs@2.7.4 --ignore-scripts<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>再次使用命令</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="启动hexo"><a href="#启动hexo" class="headerlink" title="启动hexo"></a>启动hexo</h3><pre class="line-numbers language-bash"><code class="language-bash">hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>显示信息如下，则表示启动成功</p><p><em>INFO  Start processing<br>INFO  Hexo is running at <a href="http://localhost:4000">http://localhost:4000</a> . Press Ctrl+C to stop.</em></p><p>打开浏览器访问<a href="http://localhost:4000">http://localhost:4000</a> (显示如下，表示搭建成功)</p><p><img src="https://i.loli.net/2020/03/09/gpf8HdtM4FUwoKW.png" alt="image-20200309171946297"></p><h2 id="发布到Github-Pages"><a href="#发布到Github-Pages" class="headerlink" title="发布到Github Pages"></a>发布到Github Pages</h2><p>运行命令</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>修改_config.yml文件</p><p><img src="https://i.loli.net/2020/03/09/OGdyFjc4IqsRtEp.png" alt="image-20200309121512441"></p><p>在_config.yml文件最后修改</p><p>修改前</p><p><img src="https://i.loli.net/2020/03/09/BFJvO8ZzEAthW4p.png" alt="image-20200309121949731"></p><p>修改后</p><p><img src="https://i.loli.net/2020/03/09/8tSRc1XhmEeHP5y.png" alt="image-20200309121838417"></p><p>配置好_config.yml之后保存</p><p>输入命令</p><pre class="line-numbers language-bash"><code class="language-bash">hexo ghexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://i.loli.net/2020/03/09/PovJxSLwurgpbh9.png" alt=""></p><p>显示如上则上传成功</p><p>打开浏览器访问yourname.github.io</p><p><img src="https://i.loli.net/2020/03/09/gpf8HdtM4FUwoKW.png" alt="image-20200309171946297"></p><p>恭喜你成功搭建基于hexo的个人博客</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 教程 </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>加速访问github</title>
+      <link href="/posts/11754.html"/>
+      <url>/posts/11754.html</url>
+      
+        <content type="html"><![CDATA[<p>加速访问github方式:</p><pre class="line-numbers language-text"><code class="language-text">通过修改 hosts 解决DNS污染问题。以管理员权限修改hosts文件 路径：C:\Windows\System32\drivers\etc\hosts将以下IP和域名写在hosts 文件的最后即可192.30.253.112    github.com185.199.108.153   assets-cdn.github.com185.199.109.153   assets-cdn.github.com185.199.110.153   assets-cdn.github.com185.199.111.153   assets-cdn.github.com199.232.5.194     github.global.ssl.fastly.net用 WIN + R 快捷键打开运行窗口，输入命令：cmd 并回车进入命令行窗口。输入命令ipconfig /flushdns <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>希望本文对你有用。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> github </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
