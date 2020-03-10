@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Linux搭建Redis</title>
+      <link href="/posts/2777.html"/>
+      <url>/posts/2777.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="搭建redis"><a href="#搭建redis" class="headerlink" title="搭建redis"></a>搭建redis</h1><h2 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址:"></a>1.下载地址:</h2><p>​    英文官网: <a href="https://redis.io/">https://redis.io/</a></p><p>​    中文官网: <a href="http://www.redis.cn/">http://www.redis.cn/</a></p><h2 id="2-将下载好的tar-gz拷贝到Linux-usr-local目录下"><a href="#2-将下载好的tar-gz拷贝到Linux-usr-local目录下" class="headerlink" title="2.将下载好的tar.gz拷贝到Linux: /usr/local目录下"></a>2.将下载好的tar.gz拷贝到Linux: /usr/local目录下</h2><h2 id="3-解压缩并且进入目录-usr-local-redis-xxx"><a href="#3-解压缩并且进入目录-usr-local-redis-xxx" class="headerlink" title="3.解压缩并且进入目录/usr/local/redis-xxx/"></a>3.解压缩并且进入目录/usr/local/redis-xxx/</h2><h2 id="4-安装gcc-c"><a href="#4-安装gcc-c" class="headerlink" title="4.安装gcc-c++"></a>4.安装gcc-c++</h2><pre class="line-numbers language-shell"><code class="language-shell">yum install gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="5-执行redis安装命令"><a href="#5-执行redis安装命令" class="headerlink" title="5.执行redis安装命令"></a>5.执行redis安装命令</h2><pre class="line-numbers language-shell"><code class="language-shell">make&&make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h1><h2 id="1-配置文件位置"><a href="#1-配置文件位置" class="headerlink" title="1.配置文件位置"></a>1.配置文件位置</h2><pre class="line-numbers language-shell"><code class="language-shell">cd /usr/local/redis-xxx(版本号)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>找到/redis.conf</p><h2 id="2-备份配置文件"><a href="#2-备份配置文件" class="headerlink" title="2.备份配置文件"></a>2.备份配置文件</h2><p>在根目录中创建/redis-conf-copy/目录</p><pre class="line-numbers language-shell"><code class="language-shell">mkdir /redis-conf-copy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>将/redis.conf拷贝置/redis-conf-copy/中</p><pre class="line-numbers language-shell"><code class="language-shell">cp /redis.conf   /redis-conf-copy/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="3-修改为后台运行"><a href="#3-修改为后台运行" class="headerlink" title="3.修改为后台运行"></a>3.修改为后台运行</h2><p>​    Linux系统中如果设置为前台运行,那么命令窗口一直不能关闭,一旦关闭程序退出.</p><p>​    Linux系统中如果设置为后台运行,启动完毕命令窗口就可以关闭了.</p><p>​    将备份的配置文件中daemonize no修改为yes</p><p><img src="https://i.loli.net/2020/03/10/UxMGpIB56iSaCvd.jpg" alt=""></p><h2 id="4-进入命令目录并启动服务以及找到配置文件位置"><a href="#4-进入命令目录并启动服务以及找到配置文件位置" class="headerlink" title="4.进入命令目录并启动服务以及找到配置文件位置"></a>4.进入命令目录并启动服务以及找到配置文件位置</h2><p><img src="https://i.loli.net/2020/03/10/bEoWNQpLAkPmBxM.jpg" alt=""> </p><p>​    /usr/local/redis是安装文件的目录</p><p>​    使用make &amp;&amp; make install安装完成后redis会存在于/usr/local/bin目录之下.</p><p>​    在/usr/local/bin之下有redis的所有应用,其中redis-server用于启动redis的服务.</p><p>​    直接运行redis-server会找默认的配置文件/usr/local/redis,</p><p>​    也可以找指定位置的配置文件启动服务.</p><pre class="line-numbers language-shell"><code class="language-shell">cd /usr/local/bin/redis-server /redis-conf-copy/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="5-打开新的命令终端查看服务是否启动"><a href="#5-打开新的命令终端查看服务是否启动" class="headerlink" title="5.打开新的命令终端查看服务是否启动"></a>5.打开新的命令终端查看服务是否启动</h2><pre class="line-numbers language-shell"><code class="language-shell">ps -ef|grep redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://i.loli.net/2020/03/10/2rzPk1eS8XbngFh.jpg" alt=""> </p><p>redis默认端口6379</p><h2 id="6-进入redis"><a href="#6-进入redis" class="headerlink" title="6.进入redis"></a>6.进入redis</h2><pre class="line-numbers language-shell"><code class="language-shell">redis-cli -p 6379<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://i.loli.net/2020/03/10/iCWkeFygMBqtuvm.jpg" alt=""> </p><h2 id="7-测试redis是否正常"><a href="#7-测试redis是否正常" class="headerlink" title="7.测试redis是否正常"></a>7.测试redis是否正常</h2><p>输入ping,会收到回复pong</p><p><img src="https://i.loli.net/2020/03/10/iPeDFtqrZohWElm.jpg" alt=""> </p><h2 id="8-测试Key-Value保存"><a href="#8-测试Key-Value保存" class="headerlink" title="8.测试Key-Value保存"></a>8.测试Key-Value保存</h2><pre class="line-numbers language-shell"><code class="language-shell">set key valueget key<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p><img src="https://i.loli.net/2020/03/10/aGvqw1ZIm2uK6Jy.jpg" alt=""> </p><h2 id="9-测试读写速度"><a href="#9-测试读写速度" class="headerlink" title="9.测试读写速度"></a>9.测试读写速度</h2><p>​    执行benchmark</p><p><img src="https://i.loli.net/2020/03/10/nkM9zo2JTtjlsma.jpg" alt=""> </p><p>到这里成功安装redis</p><h2 id="9-停止服务"><a href="#9-停止服务" class="headerlink" title="9.停止服务"></a>9.停止服务</h2><pre class="line-numbers language-shell"><code class="language-shell">SHUTDOWN  -- 停止 redis-serverExit      -- 退出 redis-cli<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于hexo github的个人博客</title>
       <link href="/posts/34911.html"/>
       <url>/posts/34911.html</url>

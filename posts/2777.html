@@ -4,8 +4,8 @@
 
 <head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
-    <meta name="keywords" content="留言, java 编程学习">
-    <meta name="description" content="留言 | MrHua">
+    <meta name="keywords" content="Linux Redis">
+    <meta name="description" content="Linux搭建Redis">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
     <meta name="referrer" content="no-referrer">
-    <title>留言 | MrHua</title>
+    <title>Linux搭建Redis | MrHua</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -369,54 +369,151 @@
 
 </header>
 
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-        <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    MrHua
-                
-            </div>
 
-            <div class="description center-align">
-                
-                    <span id="subtitle"></span>
-                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                    <script>
-                        var typed = new Typed("#subtitle", {
-                            strings: ['java学习之旅','Java learning journey'],
-                            startDelay: 300,
-                            typeSpeed: 100,
-                            loop: true,
-                            backSpeed: 50,
-                            showCursor: true
-                        });
-                    </script>
-                
+    <script src="/libs/cryptojs/crypto-js.min.js"></script>
+    <script>
+        (function () {
+            let pwd = '';
+            if (pwd && pwd.length > 0) {
+                if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                    alert('密码错误，将返回主页！');
+                    location.href = '/';
+                }
+            }
+        })();
+    </script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2020/03/10/PnANh7KUoalbJRc.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux搭建Redis</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-    <script>
-        $('.bg-cover').css('background-image', 'url(https://i.loli.net/2020/03/10/D14bLGOyHR392tK.jpg');
-    </script>
 
-    </div>
-</div>
+<main class="container content">
 
-<main class="content">
-    <div id="contact" class="container chip-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fa fa-comments"></i>&nbsp;&nbsp;留言
+    
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                        </div>
+                    
                 </div>
-                <h2 id="畅所欲言"><a href="#畅所欲言" class="headerlink" title="畅所欲言"></a>畅所欲言</h2><hr>
-<p>在这里可以留下你的足迹，欢迎在下方留言，欢迎交换友链，一起交流学习！</p>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/redis/" class="post-category">
+                                    redis
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                        2020-03-10
+                    </div>
+                
+
+                
+                    <div class="post-date info-break-policy">
+                        <i class="fa fa-calendar-check-o fa-fw"></i>更新日期:&nbsp;&nbsp;
+                        2020-03-10
+                    </div>
+                
+
+                
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        486
+                    </div>
+                
+
+                
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        2 分
+                    </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="搭建redis"><a href="#搭建redis" class="headerlink" title="搭建redis"></a>搭建redis</h1><h2 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址:"></a>1.下载地址:</h2><p>​    英文官网: <a href="https://redis.io/">https://redis.io/</a></p>
+<p>​    中文官网: <a href="http://www.redis.cn/">http://www.redis.cn/</a></p>
+<h2 id="2-将下载好的tar-gz拷贝到Linux-usr-local目录下"><a href="#2-将下载好的tar-gz拷贝到Linux-usr-local目录下" class="headerlink" title="2.将下载好的tar.gz拷贝到Linux: /usr/local目录下"></a>2.将下载好的tar.gz拷贝到Linux: /usr/local目录下</h2><h2 id="3-解压缩并且进入目录-usr-local-redis-xxx"><a href="#3-解压缩并且进入目录-usr-local-redis-xxx" class="headerlink" title="3.解压缩并且进入目录/usr/local/redis-xxx/"></a>3.解压缩并且进入目录/usr/local/redis-xxx/</h2><h2 id="4-安装gcc-c"><a href="#4-安装gcc-c" class="headerlink" title="4.安装gcc-c++"></a>4.安装gcc-c++</h2><pre class="line-numbers language-shell"><code class="language-shell">yum install gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="5-执行redis安装命令"><a href="#5-执行redis安装命令" class="headerlink" title="5.执行redis安装命令"></a>5.执行redis安装命令</h2><pre class="line-numbers language-shell"><code class="language-shell">make&&make install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="初始配置"><a href="#初始配置" class="headerlink" title="初始配置"></a>初始配置</h1><h2 id="1-配置文件位置"><a href="#1-配置文件位置" class="headerlink" title="1.配置文件位置"></a>1.配置文件位置</h2><pre class="line-numbers language-shell"><code class="language-shell">cd /usr/local/redis-xxx(版本号)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>找到/redis.conf</p>
+<h2 id="2-备份配置文件"><a href="#2-备份配置文件" class="headerlink" title="2.备份配置文件"></a>2.备份配置文件</h2><p>在根目录中创建/redis-conf-copy/目录</p>
+<pre class="line-numbers language-shell"><code class="language-shell">mkdir /redis-conf-copy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>将/redis.conf拷贝置/redis-conf-copy/中</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cp /redis.conf   /redis-conf-copy/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-修改为后台运行"><a href="#3-修改为后台运行" class="headerlink" title="3.修改为后台运行"></a>3.修改为后台运行</h2><p>​    Linux系统中如果设置为前台运行,那么命令窗口一直不能关闭,一旦关闭程序退出.</p>
+<p>​    Linux系统中如果设置为后台运行,启动完毕命令窗口就可以关闭了.</p>
+<p>​    将备份的配置文件中daemonize no修改为yes</p>
+<p><img src="https://i.loli.net/2020/03/10/UxMGpIB56iSaCvd.jpg" alt=""></p>
+<h2 id="4-进入命令目录并启动服务以及找到配置文件位置"><a href="#4-进入命令目录并启动服务以及找到配置文件位置" class="headerlink" title="4.进入命令目录并启动服务以及找到配置文件位置"></a>4.进入命令目录并启动服务以及找到配置文件位置</h2><p><img src="https://i.loli.net/2020/03/10/bEoWNQpLAkPmBxM.jpg" alt=""> </p>
+<p>​    /usr/local/redis是安装文件的目录</p>
+<p>​    使用make &amp;&amp; make install安装完成后redis会存在于/usr/local/bin目录之下.</p>
+<p>​    在/usr/local/bin之下有redis的所有应用,其中redis-server用于启动redis的服务.</p>
+<p>​    直接运行redis-server会找默认的配置文件/usr/local/redis,</p>
+<p>​    也可以找指定位置的配置文件启动服务.</p>
+<pre class="line-numbers language-shell"><code class="language-shell">cd /usr/local/bin/
+redis-server /redis-conf-copy/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="5-打开新的命令终端查看服务是否启动"><a href="#5-打开新的命令终端查看服务是否启动" class="headerlink" title="5.打开新的命令终端查看服务是否启动"></a>5.打开新的命令终端查看服务是否启动</h2><pre class="line-numbers language-shell"><code class="language-shell">ps -ef|grep redis<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://i.loli.net/2020/03/10/2rzPk1eS8XbngFh.jpg" alt=""> </p>
+<p>redis默认端口6379</p>
+<h2 id="6-进入redis"><a href="#6-进入redis" class="headerlink" title="6.进入redis"></a>6.进入redis</h2><pre class="line-numbers language-shell"><code class="language-shell">redis-cli -p 6379<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://i.loli.net/2020/03/10/iCWkeFygMBqtuvm.jpg" alt=""> </p>
+<h2 id="7-测试redis是否正常"><a href="#7-测试redis是否正常" class="headerlink" title="7.测试redis是否正常"></a>7.测试redis是否正常</h2><p>输入ping,会收到回复pong</p>
+<p><img src="https://i.loli.net/2020/03/10/iPeDFtqrZohWElm.jpg" alt=""> </p>
+<h2 id="8-测试Key-Value保存"><a href="#8-测试Key-Value保存" class="headerlink" title="8.测试Key-Value保存"></a>8.测试Key-Value保存</h2><pre class="line-numbers language-shell"><code class="language-shell">set key value
+get key<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://i.loli.net/2020/03/10/aGvqw1ZIm2uK6Jy.jpg" alt=""> </p>
+<h2 id="9-测试读写速度"><a href="#9-测试读写速度" class="headerlink" title="9.测试读写速度"></a>9.测试读写速度</h2><p>​    执行benchmark</p>
+<p><img src="https://i.loli.net/2020/03/10/nkM9zo2JTtjlsma.jpg" alt=""> </p>
+<p>到这里成功安装redis</p>
+<h2 id="9-停止服务"><a href="#9-停止服务" class="headerlink" title="9.停止服务"></a>9.停止服务</h2><pre class="line-numbers language-shell"><code class="language-shell">SHUTDOWN  -- 停止 redis-server
+
+Exit      -- 退出 redis-cli<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -437,18 +534,188 @@
           });
       </script>
             </div>
-        </div>
-        <div class="card">
-            
+            <hr/>
 
             
 
-            
 
-            
 
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share"
+                     style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+        <div class="social-share" data-sites="wechat,qq,weibo,twitter,facebook,linkedin"
+             data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+        <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
             
                 <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-times"></i></a>
+            <h4 class="reward-title">你的赏识让我更有动力！</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -714,10 +981,160 @@
         placeholder: 'just go go'
     });
 </script>
-            
-        </div>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+            <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                <div class="article-badge left-badge text-color">
+                    <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+                </div>
+                <div class="card">
+                    <a href="/posts/2777.html">
+                        <div class="card-image">
+                            
+                                <img src="https://i.loli.net/2020/03/10/PnANh7KUoalbJRc.jpg" class="responsive-img" alt="Linux搭建Redis">
+                            
+                            <span class="card-title">Linux搭建Redis</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Linux搭建Redis
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                        <a href="/categories/redis/" class="post-category">
+                                    redis
+                                </a>
+                                    
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                        <div class="card-action article-tags">
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        
+        
+            <div class="article col s12 m6" data-aos="fade-up">
+                <div class="article-badge right-badge text-color">
+                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                </div>
+                <div class="card">
+                    <a href="/posts/34911.html">
+                        <div class="card-image">
+                            
+                                <img src="https://i.loli.net/2020/03/09/14PzBiXQ2RpIZhC.jpg" class="responsive-img" alt="基于hexo github的个人博客">
+                            
+                            <span class="card-title">基于hexo github的个人博客</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                基于hexo github的个人博客
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                        <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                                    
+                                
+                            </span>
+                        </div>
+                    </div>
+                    
+                        <div class="card-action article-tags">
+                            
+                                <a href="/tags/GitHub/">
+                                    <span class="chip bg-color">GitHub</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%99%E7%A8%8B/">
+                                    <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                                <a href="/tags/hexo/">
+                                    <span class="chip bg-color">hexo</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        
     </div>
+</article>
+</div>
+
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+<!-- 代码块折行 -->
+
+    <style type="text/css">
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+    </style>
+
+    
+
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
