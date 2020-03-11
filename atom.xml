@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mrhua912.github.io/"/>
-  <updated>2020-03-10T12:03:44.830Z</updated>
+  <updated>2020-03-11T16:30:26.278Z</updated>
   <id>https://mrhua912.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS6下安装mysql</title>
+    <link href="https://mrhua912.github.io/posts/31915.html"/>
+    <id>https://mrhua912.github.io/posts/31915.html</id>
+    <published>2020-03-11T16:27:00.000Z</published>
+    <updated>2020-03-11T16:30:26.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOS6下安装mysql"><a href="#CentOS6下安装mysql" class="headerlink" title="CentOS6下安装mysql"></a>CentOS6下安装mysql</h1><h4 id="首先安装好环境"><a href="#首先安装好环境" class="headerlink" title="首先安装好环境"></a>首先安装好环境</h4><pre class="line-numbers language-shell"><code class="language-shell">yum -y install make gcc-c++ cmake bison-devel  ncurses-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="下载并安装MYSQL服务"><a href="#下载并安装MYSQL服务" class="headerlink" title="下载并安装MYSQL服务"></a>下载并安装MYSQL服务</h4><pre class="line-numbers language-shell"><code class="language-shell">yum install mysql-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="启动Mysql服务"><a href="#启动Mysql服务" class="headerlink" title="启动Mysql服务"></a>启动Mysql服务</h4><pre class="line-numbers language-shell"><code class="language-shell">service mysqld start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="进入Mysql"><a href="#进入Mysql" class="headerlink" title="进入Mysql"></a>进入Mysql</h4><p>第一次不需要密码，输入以下命令直接回车</p><pre class="line-numbers language-shell"><code class="language-shell">mysql -u root -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><p>root为你想要设置的密码</p><pre class="line-numbers language-shell"><code class="language-shell">set password=password('root');<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="授予远程访问权限给root"><a href="#授予远程访问权限给root" class="headerlink" title="授予远程访问权限给root"></a>授予远程访问权限给root</h4><pre class="line-numbers language-shell"><code class="language-shell">GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>红色部分是你自己数据库的密码<br>刷新mysql用户权限:</p><pre class="line-numbers language-shell"><code class="language-shell">flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>进入mysql</p><pre class="line-numbers language-shell"><code class="language-shell">mysql -uroot -p<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>输入密码的时候是看不见密码的，直接输入就行了，然后回车</p><pre class="line-numbers language-shell"><code class="language-shell">show databases;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>显示如下则表示成功，mysql到这里就安装好啦qwq</p><p><img src="https://i.loli.net/2020/03/12/VoBK2YC7EiODQMp.png" alt=""></p><p>输入命令quit退出mysql.</p><pre class="line-numbers language-shell"><code class="language-shell">quit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CentOS6下安装mysql&quot;&gt;&lt;a href=&quot;#CentOS6下安装mysql&quot; class=&quot;headerlink&quot; title=&quot;CentOS6下安装mysql&quot;&gt;&lt;/a&gt;CentOS6下安装mysql&lt;/h1&gt;&lt;h4 id=&quot;首先安装好环境&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://MrHua912.github.io/categories/mysql/"/>
+    
+    
+      <category term="教程" scheme="https://MrHua912.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Linux" scheme="https://MrHua912.github.io/tags/Linux/"/>
+    
+      <category term="mysql" scheme="https://MrHua912.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux搭建Redis</title>
