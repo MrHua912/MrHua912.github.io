@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>SpringMVC注解</title>
+      <link href="/posts/44585.html"/>
+      <url>/posts/44585.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="SpringMVC注解"><a href="#SpringMVC注解" class="headerlink" title="SpringMVC注解"></a>SpringMVC注解</h1><table><thead><tr><th>注解名</th><th>作用</th><th>应用</th><th>备注</th></tr></thead><tbody><tr><td>@Componet</td><td>Spring Bean类(通用)</td><td></td><td>把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class=""></bean></td></tr><tr><td>@Controller</td><td>用于定义控制器类</td><td>标记在类上</td><td></td></tr><tr><td>@Service</td><td>用于定义业务层组件类</td><td></td><td></td></tr><tr><td>@Repository</td><td>用于Dao持久层组件类</td><td></td><td></td></tr><tr><td>@RequestMapping</td><td>建立请求URL和处理方法之间的对应关系</td><td>作用在方法和类上</td><td>Path:指定请求路径的URL value:和path属性是一样的 mthod:指定该方法的请求方式 params:指定限制请求参数的条件 headers:发送的请求中必须包含的请求头</td></tr><tr><td>@Autowired</td><td>自动把bean里面引用对象自动set/get</td><td></td><td>默认按照类型方式进行bean匹配</td></tr><tr><td>@ResponseBody</td><td>方法的返回结果直接写入HTTP response body中</td><td>标记在控制层的方法上</td><td>将Controller的方法返回的对象，通过springmvc提供的HttpMessageConverter接口转换为指定格式的数据如：json、xml等，通过Response响应给客户端(将返回值放在response体内。返回的是数据而不是页面)</td></tr><tr><td>@RequestBody</td><td>用于获取请求体的内容</td><td></td><td>此注解放置在参数前</td></tr><tr><td>@PathVariable</td><td>用来获取请求路径（url ）中的动态参数</td><td></td><td>name：要绑定到的路径变量的名称value：经过简单的测试个人觉得与name相同required：是否必须存在，默认值是True，如果不存在的话会抛出异常，为false时会忽略</td></tr><tr><td>@RequestParam</td><td>用在方法前面</td><td></td><td></td></tr><tr><td>@Qualifier</td><td>在自动按照类型注入的基础上，再按照bean的ID注入，在给类成员注入</td><td></td><td>它不能够独立使用，需要配合@Autowired来使用Value:用于指定bean的ID</td></tr><tr><td>@ExceptionHandler</td><td>用在方法上表示遇到这个异常就执行以下方法</td><td></td><td></td></tr><tr><td>@ControllerAdvice</td><td>统一处理异常</td><td></td><td></td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> SpringMVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CentOS6下安装mysql</title>
       <link href="/posts/31915.html"/>
       <url>/posts/31915.html</url>
